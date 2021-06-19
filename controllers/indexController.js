@@ -1,7 +1,7 @@
 
 const indexController = {
     listado: function (req, res){
-        res.send('Esto es la ruta al index');
+     return   res.render('index');
         }
 
 
