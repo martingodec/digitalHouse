@@ -7,7 +7,7 @@ const indexRoute = require('./routes/indexRoute');
 const detalleRoute = require('./routes/detalleRoute');
 
 //Asignando puerto a la app
-app.listen(3333, (req, res) => {console.log("App en el puerto 3333")});
+app.listen(3334, (req, res) => {console.log("App en el puerto 3333")});
 
 //Seteo carpeta stattic
 app.use(express.static('./public'));
