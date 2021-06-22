@@ -10,9 +10,7 @@ const indexController = {
 
                 })
                 
-
-      
-        }
+}
         
 
         
