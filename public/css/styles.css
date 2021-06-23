@@ -1,12 +1,25 @@
-body {
-
-background-color: rgb(221, 226, 226);
-text-align: center;
-
+.body-lista {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 h1{
 
 color: tomato  ;
+text-align: center;
+font-family: 'Roboto Mono', monospace;
+}
+
+
+
+a.navbar-brand.hola {
+
+color: tomato;
+font-family: 'Roboto Mono', monospace;
+}
+
+a.list-group-item.list-group-item-action{
+
+    font-family: 'Roboto Mono', monospace;
 
 }

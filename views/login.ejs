@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <% if(typeof errors !='undefined' ) { %>
+        <p style="color: red;">ERROR</p>
+        <ul>
+            <% for(let i=0; i< errors.length; i++) { %>
+                <li>
+                    <%= errors[i].msg %>
+                </li>
+
+                <% } %>
+
+        </ul>
+
+
+        <% } %>
+
+            <form action="/login" method="POST">
+                <label for="">Email</label>
+                <input type="email" name="email"><br>
+                <label for="">Contraseña</label>
+                <input type="password" name="password"><br>
+        
+                <input type="submit" value="Login">
+                <label for="">Recordame</label>
+                <input type="checkbox" name="recordame">
+            </form>
+
+</body>
+
+</html>
