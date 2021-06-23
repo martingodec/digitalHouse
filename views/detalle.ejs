@@ -12,6 +12,21 @@
 
     <h2> <%= pelicula.title %>  </h2>
     <h2> <%= pelicula.id %>  </h2>
-    
+    <% if (pelicula.generos) { %> 
+    <h2><%= pelicula.generos.name %>  </h2>
+    <% } else {%>
+        <h2>SIN GENERO</h2> 
+        <% } %> 
+
+        <ul>
+            <% for(let i=0; i < pelicula.actores.length; i++) { %>
+
+                <li>
+                    <%= pelicula.actores[i].first_name %>
+                    <%= pelicula.actores[i].last_name %> 
+                </li>
+
+                <% } %> 
+        </ul>
 </body>
 </html>
