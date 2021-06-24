@@ -23,3 +23,14 @@ a.list-group-item.list-group-item-action{
     font-family: 'Roboto Mono', monospace;
 
 }
+
+li.nav-item.navbar-menu{
+
+    margin: 2px;
+
+}
+
+.container.detalle{
+margin-top: 100px;
+
+}

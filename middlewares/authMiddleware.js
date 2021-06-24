@@ -1,5 +1,5 @@
 function authMiddleware(req, res, next){
-    if(req.session.usuarioLogueado != undefined) {
+    if(req.session.usuarioLogueado != undefined && req.session.privilegios == 1) {
 
         next();
 
