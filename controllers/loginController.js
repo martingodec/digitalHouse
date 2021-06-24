@@ -23,9 +23,10 @@ const loginController = {
                                 }).then((resultado) =>{
 
                                       
-                                      console.log(resultado[0].dataValues.name)
+                                      console.log(resultado[0].dataValues.rol)
 
-                                      req.session.usuarioLogueado = req.body.email;
+                                      req.session.usuarioLogueado = resultado[0].dataValues.name;
+                                      req.session.privilegios = resultado[0].dataValues.rol;
                         if(req.body.recordame != undefined){
                                 res.cookie('recordame', req.session.usuarioLogueado, {maxAge:60000})
                         }

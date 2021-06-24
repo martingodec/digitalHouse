@@ -8,7 +8,7 @@ const detalleController = {
         })
         .then(function(pelicula){
 
-            res.render('detalle', {pelicula: pelicula , usuario: req.session.usuarioLogueado});
+            res.render('detalle', {pelicula: pelicula , usuario: req.session.usuarioLogueado, privilegio: req.session.privilegios});
         })
       
       
