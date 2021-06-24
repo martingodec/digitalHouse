@@ -20,24 +20,31 @@ const loginController = {
                                 db.Usuarios.findAll({
                                         where: {email : req.body.email , password: req.body.password}
                                    
-                                }).then(resultado=>{
+                                }).then((resultado) =>{
 
                                       
                                       console.log(resultado[0].dataValues.name)
-                                })
 
-                        ///UNA VES LOGUEADO
-
-                        req.session.usuarioLogueado = req.body.email;
+                                      req.session.usuarioLogueado = req.body.email;
                         if(req.body.recordame != undefined){
                                 res.cookie('recordame', req.session.usuarioLogueado, {maxAge:60000})
                         }
-                        res.send('Logueado exitosamente')
+                       
+                        res.redirect('/')
+                                })
+                                
+                        ///UNA VES LOGUEADO
+
+                        
 
                 } else {
                         return res.render("login", { errors: errors.errors });
                 }
         },
+
+
+        
+
 };
 
 module.exports = loginController;
