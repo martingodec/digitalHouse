@@ -3,11 +3,15 @@ const db = require('../models');
 
 const indexController = {
     listado: function (req, res){
-
+        
             db.Peliculas.findAll()
                 .then(function(peliculas){
                     res.render('index', {peliculas: peliculas, usuario: req.session.usuarioLogueado} );
 
+                }).catch(function(error){
+
+                    console.log(error)
+                    res.status(500).send('Error de conexion')
                 })
                 
                 
@@ -20,6 +24,10 @@ const indexController = {
             res.render('crearPelicula', {generos: generos});
 
 
+        }).catch(function(error){
+
+            console.log(error)
+            res.status(500).send('Error de interno Intente mas tarde')
         })},
 
 
@@ -34,8 +42,13 @@ const indexController = {
             genre_id:req.body.genero
 
         })
-        .then( res.redirect('/'))
-        //res.redirect('/')
+        .then(function(){
+            res.redirect('/');
+        }).catch(function(error){
+
+            console.log(error)
+            res.status(500).send(error.parent.sqlMessage)
+        })
     }
         
 

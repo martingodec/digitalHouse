@@ -9,12 +9,14 @@
 </head>
 
 <body>
+    
     <% if(typeof errors !='undefined' ) { %>
         <p style="color: red;">ERROR</p>
+        <p> <%= errors2.errors.msg %></p>
         <ul>
             <% for(let i=0; i< errors.length; i++) { %>
                 <li>
-                    <%= errors[i].msg %>
+                    <%= errors[0].msg %>
                 </li>
 
                 <% } %>

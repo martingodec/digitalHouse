@@ -13,38 +13,52 @@ const loginController = {
 
         processLogin: (req, res) => {
                 let errors = validationResult(req);
-                if (errors.isEmpty()) { 
-                        console.log('LOGUEADO '+ req.body.email);
-
-                      
-                                db.Usuarios.findAll({
-                                        where: {email : req.body.email , password: req.body.password}
-                                   
-                                }).then((resultado) =>{
-
-                                      
-                                      console.log(resultado[0].dataValues.rol)
-
-                                      req.session.usuarioLogueado = resultado[0].dataValues.name;
-                                      req.session.privilegios = resultado[0].dataValues.rol;
-                        if(req.body.recordame != undefined){
-                                res.cookie('recordame', req.session.usuarioLogueado, {maxAge:60000})
-                        }
-                       
-                        res.redirect('/')
-                                })
-                                
-                        ///UNA VES LOGUEADO
-
+                if (errors.isEmpty()) {
                         
 
+
+                        db.Usuarios.findAll({
+                                where: { email: req.body.email, password: req.body.password }
+
+                        }).then((resultado) => {
+                                
+                                if(resultado.length > 0){
+                                console.log(resultado[0].dataValues.rol)
+
+                                req.session.usuarioLogueado = resultado[0].dataValues.name;
+                                req.session.privilegios = resultado[0].dataValues.rol;
+                                if (req.body.recordame != undefined) {
+                                        res.cookie('recordame', req.session.usuarioLogueado, { maxAge: 60000 })
+                                }
+
+                                        res.redirect('/')} else{
+                                                return res.render("login", { errors: {
+                                                        errors:{
+                                                                msg: "Credenciales Invalidas"
+                                                        }
+                                                } });
+                                        }
+                                        
+                        }).catch(function (error) {
+
+                                console.log(error)
+                                
+                        })
+
+                        ///UNA VES LOGUEADO
+
+
+
                 } else {
-                        return res.render("login", { errors: errors.errors });
+                        return res.render("login", { errors: errors.errors , errors2: {
+                                errors:{
+                                        msg: "Credenciales Invalidas"
+                                        }}});
                 }
         },
 
 
-        
+
 
 };
 

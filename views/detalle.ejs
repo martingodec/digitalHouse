@@ -29,7 +29,7 @@
                     <% } %>
                     <% if(usuario != undefined ){ %> 
                       <li class="nav-item navbar-menu">
-                          <a class="btn btn-outline-dark" role="button" aria-pressed="true" href=""><%= usuario %> </a>
+                          <a class="btn btn-outline-dark" role="button" aria-pressed="true" href="/"><%= usuario %> </a>
                       </li>
                    
                       <li class="nav-item navbar-menu">
@@ -69,7 +69,9 @@
 
                                         <% } %>
                                 </ul>
-
+                                <h2>Rating: <%= pelicula.rating %></h2>
+                                    <h2>Duracion: <%= pelicula.length %> min.</h2>
+                                    <h2>Fecha de Estreno: <%= pelicula.release_date %> </h2>
     </div>
 
 
