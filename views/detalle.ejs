@@ -72,7 +72,19 @@
                                 <h2>Rating: <%= pelicula.rating %></h2>
                                     <h2>Duracion: <%= pelicula.length %> min.</h2>
                                     <h2>Fecha de Estreno: <%= pelicula.release_date %> </h2>
+
+<br>
+                                    <a href="/detalle/editar/<%= pelicula.id %> ">
+                                        <button class="btn btn-warning" disabled>Editar</button>
+                                    </a>
+
+                                    <form action="/detalle/borrar/<%= pelicula.id %>" method="POST">
+                                        <button class="btn btn-danger"  type="submit">Borrar</button>
+                                    </form>
+                                    
     </div>
+
+
 
 
 
