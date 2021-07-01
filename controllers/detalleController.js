@@ -54,7 +54,7 @@ const detalleController = {
 
         borrar:   function(req, res) {
             let peliculaId = req.params.id;
-            db.Peliculas.destroy({ where: { id: peliculaId } })
+              db.Peliculas.destroy({ where: { id: peliculaId } })
             
              res.redirect('/');
             
