@@ -10,4 +10,5 @@ Martin Godec. Estudiante en el curso de Desarrollador Web Full Stack NodeJs
 
 ## Usage
 
-Iremos integrando las nuevas funcionalidades a medida que las vayamos implementando.
+Todas las funciones pedidas se encuentran funcionales.
+Utilizar la db integrada en el proyecto.
