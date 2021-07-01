@@ -40,6 +40,9 @@
                       <a class="btn btn-outline-secondary" role="button" onclick="alerta()" aria-pressed="true">Log Out</a>
                       </li>
                     <% } %>
+                    <li class="nav-item navbar-menu">
+                        <a class="btn btn-outline-success" role="button" aria-pressed="true" href="/">Volver</a>
+                    </li>
                   </li>
             </ul>
         </div>
@@ -78,6 +81,7 @@
                                     <h2>Fecha de Estreno: <%= pelicula.release_date %> </h2>
 
 <br>
+
                                     <a href="/detalle/editar/<%= pelicula.id %> ">
                                         <button class="btn btn-warning" disabled>Editar</button>
                                     </a>
@@ -85,6 +89,7 @@
                                     <form action="/detalle/borrar/<%= pelicula.id %>" method="POST">
                                         <button class="btn btn-danger"  type="submit">Borrar</button>
                                     </form>
+                                
                                     
     </div>
 

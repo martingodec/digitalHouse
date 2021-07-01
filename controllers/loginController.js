@@ -12,12 +12,8 @@ const loginController = {
         },
 
         processLogin: (req, res) => {
-                let errors = validationResult(req);
-                if (errors.isEmpty()) {
-                        
-
-
-                        db.Usuarios.findAll({
+                
+                         db.Usuarios.findAll({
                                 where: { email: req.body.email, password: req.body.password }
 
                         }).then((resultado) => {
@@ -27,6 +23,7 @@ const loginController = {
 
                                 req.session.usuarioLogueado = resultado[0].dataValues.name;
                                 req.session.privilegios = resultado[0].dataValues.rol;
+
                                 if (req.body.recordame != undefined) {
                                         res.cookie('recordame', req.session.usuarioLogueado, { maxAge: 60000 })
                                 }
@@ -36,7 +33,7 @@ const loginController = {
                                                         errors:{
                                                                 msg: "Credenciales Invalidas"
                                                         }
-                                                } });
+                                                } } );
                                         }
                                         
                         }).catch(function (error) {
@@ -49,13 +46,8 @@ const loginController = {
 
 
 
-                } else {
-                        return res.render("login", { errors: errors.errors , errors2: {
-                                errors:{
-                                        msg: "Credenciales Invalidas"
-                                        }}});
                 }
-        },
+        
 
 
 
