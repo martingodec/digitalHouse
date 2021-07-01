@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const indexRoute = require('./routes/indexRoute');
 const detalleRoute = require('./routes/detalleRoute');
 const loginRoute = require('./routes/loginRoute');
-
+const registroRoute = require('./routes/registroRoute');
 //Asignando puerto a la app
 app.listen(3334, (req, res) => {console.log("App en el puerto 3333")});
 
@@ -28,6 +28,7 @@ app.set('views')
 
 app.use('/', indexRoute);
 app.use('/detalle', detalleRoute);
+app.use('/registrar', registroRoute)
 app.use('/login',loginRoute);
 app.get('/logout', (req, res)=> {
     req.session.destroy()
