@@ -9,23 +9,36 @@ module.exports = (sequelize,dataTypes)=>{
         autoIncrement:true
     },
     first_name:{
-        type: dataTypes.STRING
+        type: dataTypes.STRING,
+        allowNull: false
     },
     last_name:{
-        type: dataTypes.STRING
+        type: dataTypes.STRING,
+        allowNull: false
     },
     rating: {
-        type: dataTypes.DECIMAL
+        type: dataTypes.DECIMAL,
+        allowNull: false
     },
     favorite_movie_id: {
         type: dataTypes.INTEGER
+    },
+    updated_at: {
+        type: dataTypes.DATE
+    },
+    created_at: {
+        type: dataTypes.DATE
     }
 
     };
 
     let config = {
         tableName: "actors",
-        timestamps: false,
+        timestamps: true,
+        paranoid: true,
+        deletedAt: 'destroyTime',
+        updatedAt: 'updated_at',
+        createdAt: 'created_at'
     }
 
 
@@ -33,12 +46,12 @@ const Actor = sequelize.define(alias, cols, config);
 
 Actor.associate = function(models) {
     Actor.belongsToMany(models.Peliculas, {
-        as: "peliculas",
+        as: "pelicula",
         through:'actor_movie',
         foreignKey: 'actor_id',
         otherKey:'movie_id',
-        timestamps: false
-    })
+        timestamps: true
+    });
 }
 
 

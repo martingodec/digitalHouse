@@ -52,17 +52,14 @@ const detalleController = {
             res.redirect('/detalle/' + req.params.id)
         },
 
-        borrar: function(req, res) {
-
-            db.Peliculas.destroy({
-                where : {
-                    id: req.params.id
-                }
-            })
-
-            res.redirect('/');
-
-        }
+        borrar:   function(req, res) {
+            let peliculaId = req.params.id;
+            db.Peliculas.destroy({ where: { id: peliculaId } })
+            
+             res.redirect('/');
+            
+           
+    }
 
 
 };
