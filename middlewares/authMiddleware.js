@@ -4,7 +4,7 @@ function authMiddleware(req, res, next){
         next();
 
     } else {
-        res.send('Esta opcion es solo para Administradores')
+        res.render('onlyAdmin')
     }
 
 
