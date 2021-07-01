@@ -4,7 +4,7 @@ function isLogMiddleware(req, res, next){
         next();
 
     } else {
-        res.send('Ya estas Logueado como: ' + req.session.usuarioLogueado)
+        res.render('logeadoTrue', { name:req.session.usuarioLogueado})
     }
 
 
