@@ -1,14 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const registroController = require('../controllers/registroController')
-const { check, valifationResult, body } = require('express-validator');
+const { check} = require('express-validator');
 
 const isLogMiddleware = require('../middlewares/isLogMiddleware')
 
+const validaciones = [check('email').isEmail().withMessage('Debes completar un email valido'), 
+                      check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener mas de 8 caracteres.'),
+                      check('name').notEmpty().withMessage('Debe completar un nombre.'),
+                        check('rol').notEmpty().withMessage('Debe selecionar un rol.')]
+
 
 router.get('/',isLogMiddleware, registroController.registrar);
+router.post('/',validaciones, isLogMiddleware,registroController.registrarUsuario)
 
-//router.post('/', [check('email').isEmail(), check('password').isLength({ min: 8 }).withMessage('La contraseña debe tener mas de 8 caracteres')], registroController.processLogin);
 
 
 

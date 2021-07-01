@@ -28,7 +28,7 @@ app.set('views')
 
 app.use('/', indexRoute);
 app.use('/detalle', detalleRoute);
-app.use('/registrar', registroRoute)
+app.use('/registrar', registroRoute);
 app.use('/login',loginRoute);
 app.get('/logout', (req, res)=> {
     req.session.destroy()
